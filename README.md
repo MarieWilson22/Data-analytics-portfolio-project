@@ -1,20 +1,13 @@
-# Merit America Capstone Project
-## 1. prepare
--Problem statement:
--Stakeholders:
--Dataset source
-- Goal of the project:
+sql
+-- Total sales by month
+SELECT strftime('%Y-%m', order_date) AS month,
+       SUM(total_amount) AS total_sales
+FROM orders
+GROUP BY month
+ORDER BY month;
 
-  ## 2. Process
-  -Data cleaning steps:
-  -Tools used:
-  - Any issues or fixes:
- 
-    ## 3. Analyze
-    -Key insights:
-    -Visualizations:
-    -Summary of findings:
-
-    ## 4. Share
-    -Final recommendations:
-    -What the results mean:
+-- Top 5 products
+SELECT product_name, SUM(quantity) AS total_sold
+FROM sales
+GROUP BY product_name
+ORDER BY total_sold DESC
